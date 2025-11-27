@@ -6,9 +6,8 @@ package software.engineering.project;
 
 /**
  *
- * @author matda
+ * @author anton
  */
-public class AntonioPepe {
-    public int tisic;
-    public int pop;
+public class ciao {
+    
 }
