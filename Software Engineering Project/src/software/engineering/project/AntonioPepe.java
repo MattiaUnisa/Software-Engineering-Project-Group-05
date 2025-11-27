@@ -10,4 +10,5 @@ package software.engineering.project;
  */
 public class AntonioPepe {
     public int tisic;
+    public int pop;
 }
