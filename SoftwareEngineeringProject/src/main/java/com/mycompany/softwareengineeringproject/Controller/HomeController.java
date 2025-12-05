@@ -26,7 +26,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
-import javafx.util.Callback;
 
 public class HomeController implements Initializable {
 
@@ -82,7 +81,7 @@ public class HomeController implements Initializable {
             });
         }
 
-        // method called automatically by the ListView
+        // method called automatically by the ListView. it updates the single cell
         @Override
         protected void updateItem(Rule rule, boolean empty) {
             super.updateItem(rule, empty); // super is ListCell, i'm calling this method from ListView
