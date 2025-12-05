@@ -4,12 +4,21 @@
  */
 package com.mycompany.softwareengineeringproject.Model;
 
+import java.time.LocalTime;
+
 /**
  *
  * @author matda
  */
-public interface Trigger {
+public class TriggerContext {
     
-    public boolean isTriggered(TriggerContext context);
+    private final LocalTime currentTime;
     
+    public TriggerContext(LocalTime currentTime){
+        this.currentTime = currentTime;
+    }
+    
+    public LocalTime getCurrentTime() {
+        return currentTime;
+        }
 }
