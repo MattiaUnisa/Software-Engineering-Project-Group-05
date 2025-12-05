@@ -8,12 +8,14 @@ import com.mycompany.softwareengineeringproject.Model.*;
 import java.time.LocalTime;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.time.temporal.ChronoUnit;
+
 
 public class TimeTriggerTest {
 
     @Test
     public void testTriggerAtExactTime() {
-        LocalTime now = LocalTime.now().withNano(0);
+        LocalTime now = LocalTime.now().truncatedTo(ChronoUnit.MINUTES);
         TimeTrigger trigger = new TimeTrigger(now);
 
         assertTrue(trigger.isTriggered());

@@ -5,6 +5,7 @@
 package com.mycompany.softwareengineeringproject.Model;
 
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
@@ -15,7 +16,7 @@ public class TimeTrigger implements Trigger{
     private LocalTime time;
 
     public TimeTrigger(LocalTime time) {
-        this.time = time.withNano(0);
+        this.time = time.truncatedTo(ChronoUnit.MINUTES);    
     }
     
     public LocalTime getTime() {
@@ -24,7 +25,7 @@ public class TimeTrigger implements Trigger{
     
     @Override
     public boolean isTriggered(){
-        return LocalTime.now().withNano(0).equals(time);
+        return LocalTime.now().truncatedTo(ChronoUnit.MINUTES).equals(time);
     }
 
     @Override
