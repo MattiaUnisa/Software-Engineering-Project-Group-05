@@ -82,9 +82,10 @@ public class HomeController implements Initializable {
             });
         }
 
+        // method called automatically by the ListView
         @Override
         protected void updateItem(Rule rule, boolean empty) {
-            super.updateItem(rule, empty);
+            super.updateItem(rule, empty); // super is ListCell, i'm calling this method from ListView
 
             if (empty || rule == null) {
                 // if the rule is empty, don't show it
