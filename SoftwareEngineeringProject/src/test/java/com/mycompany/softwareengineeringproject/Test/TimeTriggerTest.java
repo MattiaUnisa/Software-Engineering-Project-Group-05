@@ -13,7 +13,7 @@ public class TimeTriggerTest {
 
     @Test
     public void testTriggerAtExactTime() {
-        LocalTime now = LocalTime.now();
+        LocalTime now = LocalTime.now().withNano(0);
         TimeTrigger trigger = new TimeTrigger(now);
 
         assertTrue(trigger.isTriggered());

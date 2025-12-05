@@ -15,7 +15,7 @@ public class TimeTrigger implements Trigger{
     private LocalTime time;
 
     public TimeTrigger(LocalTime time) {
-        this.time = time;
+        this.time = time.withNano(0);
     }
     
     public LocalTime getTime() {
@@ -24,7 +24,7 @@ public class TimeTrigger implements Trigger{
     
     @Override
     public boolean isTriggered(){
-        return LocalTime.now().equals(time);
+        return LocalTime.now().withNano(0).equals(time);
     }
 
     @Override
