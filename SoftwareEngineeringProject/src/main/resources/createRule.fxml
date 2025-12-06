@@ -21,8 +21,8 @@
             <children>
                 <Label text="Insert Rule Name:" styleClass="section-lable"/>
                 <TextField fx:id="nameField"/>
-               <!-- <Label text="Select Trigger:" style="-fx-font-size: 14"/>
-                <fx:include source="TriggerSection.fxml" fx:id="triggerSection"/> -->
+                <Label text="Select Trigger:" style="-fx-font-size: 14"/>
+                <fx:include source="TriggerSection.fxml" fx:id="triggerSection"/> 
                 <Button text="Save Rule" onAction="#onSaveClick" styleClass="success-button" />
             </children>
         </VBox>

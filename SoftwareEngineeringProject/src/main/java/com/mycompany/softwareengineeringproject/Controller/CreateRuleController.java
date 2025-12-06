@@ -30,7 +30,7 @@ public class CreateRuleController {
     private void onSaveClick() throws IOException {
         String name = nameField.getText();
         
-        //Trigger trigger = triggerSectionController.buildTrigger();
+        Trigger trigger = triggerSectionController.buildTrigger();
 
         /*if (trigger == null) {
             System.out.println("Select a trigger first!");
