@@ -26,6 +26,8 @@ public class TriggerController {
     @FXML
     private Spinner<Integer> minuteSpinner;
     
+    private Trigger createdTrigger;
+    
     //initialize the combobox and add the created triggers
     public void initialize() {
     triggerComboBox.getItems().addAll(
@@ -43,10 +45,11 @@ public class TriggerController {
         }
     }
     
-    @FXML
-    private void onCreateRule() {
+    public Trigger buildTrigger() {
         //String name = ruleNameField.getText();
         String selectedTrigger = triggerComboBox.getValue();
+        
+        if (selectedTrigger == null) return null;
 
         Trigger trigger = null;
 
@@ -56,11 +59,7 @@ public class TriggerController {
             LocalTime time = LocalTime.of(hour, minute);
             trigger = TriggerFactory.createTimeTrigger(time);
         }
-
-        //Rule rule = new Rule(name, trigger);
-        //RuleEngine.getInstance().addRule(rule);
-
-        // logica per tornare alla homepage
+        return trigger;
     }
     
 }

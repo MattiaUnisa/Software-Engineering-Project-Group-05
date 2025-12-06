@@ -31,6 +31,10 @@
                 
                 <Label text="" minHeight="20.0" />
                 
+                <Label text="Select Trigger:" style="-fx-font-size: 14"/>
+
+                <fx:include source="TriggerSection.fxml" fx:id="triggerSection"/>
+                
                 <Button text="Save Rule" onAction="#onSaveClick" style="-fx-base: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-padding: 10 20;" />
             </children>
         </VBox>
