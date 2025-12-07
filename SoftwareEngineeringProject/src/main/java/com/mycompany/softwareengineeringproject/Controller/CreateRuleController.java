@@ -25,7 +25,7 @@ public class CreateRuleController {
         App.setRoot("home");
     }
 
-    // go back to the home schreen saving the rule
+    // go back to the home screen saving the rule
     @FXML
     private void onSaveClick() throws IOException {
         String name = nameField.getText();
@@ -52,7 +52,7 @@ public class CreateRuleController {
         }
         
         // empty rule 
-        Rule newRule = new Rule(name, null, null);
+        Rule newRule = new Rule(name, trigger, null);
 
         // add the rule to the singleton 
         RuleEngine.getInstance().addRule(newRule);
