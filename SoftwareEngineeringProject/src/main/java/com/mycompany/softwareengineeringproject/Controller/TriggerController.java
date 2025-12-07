@@ -10,6 +10,7 @@ import java.time.LocalTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 
 /**
  *
@@ -26,32 +27,52 @@ public class TriggerController {
     @FXML
     private Spinner<Integer> minuteSpinner;
     
-    private Trigger createdTrigger;
+    private Trigger trigger = null;
     
     //initialize the combobox and add the created triggers
     public void initialize() {
+        
+    
     triggerComboBox.getItems().addAll(
+        "Choose Trigger",
         "TimeTrigger"                //Triggers are added to the combobox as strings
     );
+    
+    triggerComboBox.getSelectionModel().select("Choose Trigger");
+    
+    hourSpinner.setValueFactory(
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 12)
+        );
+
+        minuteSpinner.setValueFactory(
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0)
+        );
+
 }
     
     @FXML  //When the trigger is selected, fields for entering useful elements are shown
     private void onTriggerSelected() {
         String selected = triggerComboBox.getValue();  //I capture the selected trigger as a string
+        
+        if (selected == null || selected.equals("Choose Trigger")) {
+        return;
+        }
     
         if (selected.equals("TimeTrigger")) {
             hourSpinner.setVisible(true);    //show the hour selector
             minuteSpinner.setVisible(true);  //show the minute selector
+        }else{
+            hourSpinner.setVisible(false);
+            minuteSpinner.setVisible(false);
         }
+        
     }
     
     public Trigger buildTrigger() {
         //String name = ruleNameField.getText();
         String selectedTrigger = triggerComboBox.getValue();
         
-        if (selectedTrigger == null) return null;
-
-        Trigger trigger = null;
+         if (selectedTrigger == null || selectedTrigger.equals("Choose Trigger")) return null;
 
         if (selectedTrigger.equals("TimeTrigger")) {  //If the string matches, the trigger is fired.
             int hour = hourSpinner.getValue();
