@@ -19,7 +19,7 @@ and open the template in the editor.
 }
 
 .main-container {
-    -fx-padding: 20px;
+    -fx-padding: 10px;
     -fx-spacing: 20px;
     -fx-alignment: CENTER;
 }

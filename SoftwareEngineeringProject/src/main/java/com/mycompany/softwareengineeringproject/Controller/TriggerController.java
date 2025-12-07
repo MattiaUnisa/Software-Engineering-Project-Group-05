@@ -6,11 +6,12 @@
 package com.mycompany.softwareengineeringproject.Controller;
 
 import com.mycompany.softwareengineeringproject.Model.*;
-import java.time.LocalTime;
+import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.layout.StackPane;
 
 /**
  *
@@ -20,62 +21,55 @@ public class TriggerController {
     
     @FXML
     private ComboBox<String> triggerComboBox;
-
-    @FXML
-    private Spinner<Integer> hourSpinner;
-
-    @FXML
-    private Spinner<Integer> minuteSpinner;
     
-    private Trigger trigger = null;
+    @FXML
+    private StackPane dynamicContainer;
+    
+    private TriggerControllerInterface trigger;
     
     //initialize the combobox and add the created triggers
     public void initialize() {
         
-    
+    //Triggers are added to the combobox as strings
     triggerComboBox.getItems().addAll(
         "Choose Trigger",
-        "TimeTrigger"                //Triggers are added to the combobox as strings
+        "TimeTrigger"                
     );
     
-    triggerComboBox.getSelectionModel().select("Choose Trigger");  //the default string selected is Choose Trigger
+    //the default string selected is Choose Trigger
+    triggerComboBox.getSelectionModel().select("Choose Trigger");  
     
-    hourSpinner.setValueFactory(    //Function used to set the value of the Spinner
-            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 0)  //Object that manages values in the Spinner, the first is the min value, the second is the max value and the third is the first value
-        );
-
-        minuteSpinner.setValueFactory(
-            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0)
-        );
-
-}
+    }
     
-    @FXML  //When the trigger is selected, fields for entering useful elements are shown
-    private void onTriggerSelected() {
-        String selected = triggerComboBox.getValue();  //I capture the selected trigger as a string
+    //When the trigger is selected, fields for entering useful elements are shown through their fmxl files
+    @FXML  
+    private void onTriggerSelected() throws IOException {
         
-        if (selected.equals("TimeTrigger")) {
-            hourSpinner.setVisible(true);    //show the hour selector when the TimeTrigger is selected
-            minuteSpinner.setVisible(true);  //show the minute selector when the TimeTrigger is selected
-        }else{
-            hourSpinner.setVisible(false); //hide the hour selector when the TimeTrigger is not selected
-            minuteSpinner.setVisible(false); //hide the minute selector when the TimeTrigger is not selected
+        //We capture the selected trigger as a string
+        String selectedTrigger = triggerComboBox.getValue();  
+        
+        dynamicContainer.getChildren().clear(); 
+        trigger = null;
+        
+        if (selectedTrigger == null || selectedTrigger.equals("Choose Trigger")) { //if there isn't a valid selection we will do nothing
+            return; 
         }
+        
+        String fxmlPath = "/" + selectedTrigger + ".fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Parent triggerUI = loader.load();
+        
+        trigger = loader.getController();
+        dynamicContainer.getChildren().add(triggerUI);
         
     }
     
     public Trigger buildTrigger() {
-        String selectedTrigger = triggerComboBox.getValue();  //String selected is 
-        
-         if (selectedTrigger == null || selectedTrigger.equals("Choose Trigger")) return null; //if there isn't selected triggere or the String Choose Trigger return null
-
-        if (selectedTrigger.equals("TimeTrigger")) {  //Take the value selected in the ComboBox
-            int hour = hourSpinner.getValue();  //take the int hour value
-            int minute = minuteSpinner.getValue(); //take the int minute value
-            LocalTime time = LocalTime.of(hour, minute); //create a variable that we use to create the TimeTrigger
-            trigger = TriggerFactory.createTimeTrigger(time);
+    
+        if (trigger!= null){
+            return trigger.buildTrigger();
         }
-        return trigger;
+        return null;
     }
     
 }
