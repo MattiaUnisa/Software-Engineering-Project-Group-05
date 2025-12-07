@@ -10,16 +10,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 
-    <VBox spacing="10" xmlns="http://javafx.com/javafx/11.0.2"
+    <VBox spacing="10" xmlns="http://javafx.com/javafx/11.0.2" styleClass="main-container"
           xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.mycompany.softwareengineeringproject.Controller.TriggerController">
+          fx:controller="com.mycompany.softwareengineeringproject.Controller.TriggerController"
+          stylesheets="@style.css">
 
         <ComboBox fx:id="triggerComboBox"
                   promptText="Choose trigger"
                   onAction="#onTriggerSelected"
-                  maxWidth="300"/>
+                  maxWidth="500"
+        />
 
-        <HBox spacing="10">
+        <HBox spacing="10" styleClass="main-container">
             <Spinner fx:id="hourSpinner" prefWidth="80" visible="false"/>
             <Spinner fx:id="minuteSpinner" prefWidth="80" visible="false"/>
         </HBox>

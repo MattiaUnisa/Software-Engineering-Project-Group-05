@@ -99,7 +99,7 @@ and open the template in the editor.
     -fx-background-color: -light-grey;
 }
 
-/* when we selecta rule */
+/* when we select a rule */
 .list-cell:filled:selected {
     -fx-background-color: -light-blue; /* O un tuo colore di selezione */
     -fx-text-fill: black; 
@@ -126,7 +126,7 @@ and open the template in the editor.
     -fx-background-radius: 50%;
 }
 
-.section-lable {
+.section-label {
     -fx-font-size: 14px;
 }
 
@@ -134,6 +134,88 @@ and open the template in the editor.
     -fx-font-size: 14px;
     -fx-padding: 5px;
     -fx-max-width: 500px;
+}
+
+.combo-box{   /* Style for selector that use ComboBox */
+    -fx-background-color: white;
+    -fx-border-color: #bfc7d1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 4 6 4 6;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+.combo-box:hover {  /* Style When mouse pass hover the ComboBox */
+    -fx-background-color: #f2f5f8;
+    -fx-border-color: #94a2b3;
+}
+
+.combo-box .list-cell { /* Style for singular cell of ComboBox */
+    -fx-font-size: 14px;
+    -fx-padding: 6px;
+    -fx-background-color: white; 
+}
+
+.combo-box .list-cell:hover { /* Style when mouse pass hover the ComboBox cell */
+    -fx-background-color: #f2f5f8;
+    -fx-text-fill: #000;
+}
+
+.combo-box-popup .list-view { /* Style of the section that open up when there is click on ComboBox */
+    -fx-background-color: white;
+    -fx-padding: 4;
+    -fx-border-color: #A9A9A9;
+}
+
+.combo-box .arrow { /* Style of the selection arrow */
+    -fx-background-color: black;       /* colore freccia */
+    -fx-padding: 0.3em;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";  /* puoi cambiare forma */
+}
+
+.combo-box .arrow-button { /* Style of the section around the arrow */
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 0 6 6 0;
+}
+
+.combo-box .arrow-button:hover { /* Style of the section around the arrow when mouse pass hover */
+    -fx-background-color: #c8c8c8;
+}
+
+.spinner { /* Style of the structure of the Spinner */ 
+    -fx-background-color: white;
+    -fx-border-color: #bfc7d1;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 0;
+}
+
+.spinner .text-field { /* Style of the number field */
+    -fx-background-color: transparent;
+    -fx-font-size: 15px;
+    -fx-padding: 8;
+    -fx-alignment: center;
+    -fx-text-fill: #333;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {  /* Style of the arrows */
+    -fx-background-color: transparent;
+    -fx-padding: 6;
+}
+
+/* Hover */
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover { /* Style of the space arounde arrows when mouse pass hover */
+    -fx-background-color: #f2f5f8;
+    -fx-background-radius: 0 8 0 0, 0 0 8 0;
+}
+
+.spinner .increment-arrow,
+.spinner .decrement-arrow { /* color of arrows */
+    -fx-background-color: black;
 }
 
 .rule-creation-container {

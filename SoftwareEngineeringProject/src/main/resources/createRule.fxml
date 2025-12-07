@@ -19,9 +19,9 @@
         <!-- we use the StackPane because it overlaps the elements and we position the back_arrow on the left -->
         <VBox alignment="CENTER" VBox.vgrow="ALWAYS" styleClass="rule-creation-container">
             <children>
-                <Label text="Insert Rule Name:" styleClass="section-lable"/>
-                <TextField fx:id="nameField"/>
-                <Label text="Select Trigger:" style="-fx-font-size: 14"/>
+                <Label text="Insert Rule Name:" styleClass="section-label"/>
+                <TextField fx:id="nameField" />
+                <Label text="Select Trigger:" styleClass="section-label"/>
                 <fx:include source="TriggerSection.fxml" fx:id="triggerSection"/> 
                 <Button text="Save Rule" onAction="#onSaveClick" styleClass="success-button" />
             </children>

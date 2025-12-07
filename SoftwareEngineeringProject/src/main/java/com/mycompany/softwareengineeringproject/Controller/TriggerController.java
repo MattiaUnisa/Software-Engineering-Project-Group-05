@@ -41,7 +41,7 @@ public class TriggerController {
     triggerComboBox.getSelectionModel().select("Choose Trigger");
     
     hourSpinner.setValueFactory(
-            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 12)
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 0)
         );
 
         minuteSpinner.setValueFactory(
@@ -54,10 +54,6 @@ public class TriggerController {
     private void onTriggerSelected() {
         String selected = triggerComboBox.getValue();  //I capture the selected trigger as a string
         
-        if (selected == null || selected.equals("Choose Trigger")) {
-        return;
-        }
-    
         if (selected.equals("TimeTrigger")) {
             hourSpinner.setVisible(true);    //show the hour selector
             minuteSpinner.setVisible(true);  //show the minute selector
@@ -66,10 +62,13 @@ public class TriggerController {
             minuteSpinner.setVisible(false);
         }
         
+        if (selected == null || selected.equals("Choose Trigger")) {
+        return;
+        }
+        
     }
     
     public Trigger buildTrigger() {
-        //String name = ruleNameField.getText();
         String selectedTrigger = triggerComboBox.getValue();
         
          if (selectedTrigger == null || selectedTrigger.equals("Choose Trigger")) return null;
