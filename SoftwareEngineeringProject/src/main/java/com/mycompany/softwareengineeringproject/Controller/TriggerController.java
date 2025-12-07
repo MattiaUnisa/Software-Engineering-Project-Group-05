@@ -38,10 +38,10 @@ public class TriggerController {
         "TimeTrigger"                //Triggers are added to the combobox as strings
     );
     
-    triggerComboBox.getSelectionModel().select("Choose Trigger");
+    triggerComboBox.getSelectionModel().select("Choose Trigger");  //the default string selected is Choose Trigger
     
-    hourSpinner.setValueFactory(
-            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 0)
+    hourSpinner.setValueFactory(    //Function used to set the value of the Spinner
+            new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 0)  //Object that manages values in the Spinner, the first is the min value, the second is the max value and the third is the first value
         );
 
         minuteSpinner.setValueFactory(
@@ -55,28 +55,24 @@ public class TriggerController {
         String selected = triggerComboBox.getValue();  //I capture the selected trigger as a string
         
         if (selected.equals("TimeTrigger")) {
-            hourSpinner.setVisible(true);    //show the hour selector
-            minuteSpinner.setVisible(true);  //show the minute selector
+            hourSpinner.setVisible(true);    //show the hour selector when the TimeTrigger is selected
+            minuteSpinner.setVisible(true);  //show the minute selector when the TimeTrigger is selected
         }else{
-            hourSpinner.setVisible(false);
-            minuteSpinner.setVisible(false);
-        }
-        
-        if (selected == null || selected.equals("Choose Trigger")) {
-        return;
+            hourSpinner.setVisible(false); //hide the hour selector when the TimeTrigger is not selected
+            minuteSpinner.setVisible(false); //hide the minute selector when the TimeTrigger is not selected
         }
         
     }
     
     public Trigger buildTrigger() {
-        String selectedTrigger = triggerComboBox.getValue();
+        String selectedTrigger = triggerComboBox.getValue();  //String selected is 
         
-         if (selectedTrigger == null || selectedTrigger.equals("Choose Trigger")) return null;
+         if (selectedTrigger == null || selectedTrigger.equals("Choose Trigger")) return null; //if there isn't selected triggere or the String Choose Trigger return null
 
-        if (selectedTrigger.equals("TimeTrigger")) {  //If the string matches, the trigger is fired.
-            int hour = hourSpinner.getValue();
-            int minute = minuteSpinner.getValue();
-            LocalTime time = LocalTime.of(hour, minute);
+        if (selectedTrigger.equals("TimeTrigger")) {  //Take the value selected in the ComboBox
+            int hour = hourSpinner.getValue();  //take the int hour value
+            int minute = minuteSpinner.getValue(); //take the int minute value
+            LocalTime time = LocalTime.of(hour, minute); //create a variable that we use to create the TimeTrigger
             trigger = TriggerFactory.createTimeTrigger(time);
         }
         return trigger;

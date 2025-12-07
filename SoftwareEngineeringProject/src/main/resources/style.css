@@ -146,6 +146,7 @@ and open the template in the editor.
     -fx-text-fill: #333;
 }
 
+/*Begin Trigger Style */
 .combo-box:hover {  /* Style When mouse pass hover the ComboBox */
     -fx-background-color: #f2f5f8;
     -fx-border-color: #94a2b3;
@@ -206,7 +207,6 @@ and open the template in the editor.
     -fx-padding: 6;
 }
 
-/* Hover */
 .spinner .increment-arrow-button:hover,
 .spinner .decrement-arrow-button:hover { /* Style of the space arounde arrows when mouse pass hover */
     -fx-background-color: #f2f5f8;
@@ -217,6 +217,7 @@ and open the template in the editor.
 .spinner .decrement-arrow { /* color of arrows */
     -fx-background-color: black;
 }
+/* END TRIGGER STYLE */
 
 .rule-creation-container {
     -fx-spacing: 20px;

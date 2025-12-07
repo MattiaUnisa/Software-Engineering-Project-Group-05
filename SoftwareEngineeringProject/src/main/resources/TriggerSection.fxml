@@ -22,8 +22,8 @@
         />
 
         <HBox spacing="10" styleClass="main-container">
-            <Spinner fx:id="hourSpinner" prefWidth="80" visible="false"/>
-            <Spinner fx:id="minuteSpinner" prefWidth="80" visible="false"/>
+            <Spinner fx:id="hourSpinner" prefWidth="100" visible="false"/>
+            <Spinner fx:id="minuteSpinner" prefWidth="100" visible="false"/>
         </HBox>
 
     </VBox>
