@@ -64,4 +64,5 @@ public class CreateRuleController {
         
         App.setRoot("home");
     }
+    
 }
