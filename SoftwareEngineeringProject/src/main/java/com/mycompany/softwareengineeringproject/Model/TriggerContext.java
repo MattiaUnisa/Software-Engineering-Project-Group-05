@@ -10,6 +10,8 @@ import java.time.LocalTime;
  *
  * @author matda
  */
+
+//This class is a container of data and consent us to expand only this class in order to avoide changes in other classes
 public class TriggerContext {
     
     private final LocalTime currentTime;

@@ -15,6 +15,7 @@ public class TimeTrigger implements Trigger{
     
     private LocalTime time;
 
+    //Truncate the time in order to consider only hours and minutes
     public TimeTrigger(LocalTime time) {
         this.time = time.truncatedTo(ChronoUnit.MINUTES);    
     }
@@ -23,6 +24,7 @@ public class TimeTrigger implements Trigger{
         return time;
     }
     
+    //Condition for the creation of the trigger
     @Override
     public boolean isTriggered(TriggerContext context){
         return context.getCurrentTime().truncatedTo(ChronoUnit.MINUTES).equals(time);

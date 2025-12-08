@@ -10,6 +10,9 @@ import java.time.LocalTime;
  *
  * @author matda
  */
+
+//This class contain all the method for the creation of Trigger Instance and this is the class called when there is the need to create a Trigger
+//in this way is not necessary the communication with the other Trigger classes
 public class TriggerFactory {
     
     
