@@ -15,6 +15,7 @@
           fx:controller="com.mycompany.softwareengineeringproject.Controller.TriggerController"
           stylesheets="@style.css">
 
+        <!-- with the onAction when a new trigger is selected the method onTriggerSelected of the TriggerController is called -->
         <ComboBox fx:id="triggerComboBox"
                   promptText="Choose trigger"
                   onAction="#onTriggerSelected"

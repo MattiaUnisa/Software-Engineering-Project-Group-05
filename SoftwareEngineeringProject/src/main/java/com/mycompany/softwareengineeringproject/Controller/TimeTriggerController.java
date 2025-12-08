@@ -23,6 +23,9 @@ public class TimeTriggerController implements TriggerControllerInterface{
     @FXML
     private Spinner<Integer> minuteSpinner;
     
+    //The method initialize is a special callback method of JavaFX. When the fxml file is loaded, the loader search and
+    //call automatically this method that in this case is used to give the value to the Spinner
+    //A Spinner can't work unless a SpinnerValueFactory is assigned to it
     public void initialize(){
         
     hourSpinner.setValueFactory(    //Function used to set the value of the Spinner
@@ -34,6 +37,7 @@ public class TimeTriggerController implements TriggerControllerInterface{
     );
     }
     
+    //This Method is used to get the value to create the instance of TimeTrigger
     @Override
     public Trigger buildTrigger(){
         int hour = hourSpinner.getValue();  //take the int hour value

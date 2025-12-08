@@ -12,6 +12,7 @@ import com.mycompany.softwareengineeringproject.Model.Trigger;
  */
 public interface TriggerControllerInterface {
     
+    //Method for the creation of the Trigger Object
     public Trigger buildTrigger();
     
 }
