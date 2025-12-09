@@ -39,6 +39,15 @@ public class RuleEngine {
     public ObservableList<Rule> getRules(){
         return this.rules;
     }
+    
+    public void CheckAllRules(){
+        for(Rule rule:rules){
+            ActionContext actioncontext = null;
+            if(rule.getTrigger().isTriggered()){
+                rule.getAction().execute(actioncontext);
+            }
+        }
+    }
     @Override
     public String toString() {
         return "RuleEngine{" + "rules=" + rules + '}';

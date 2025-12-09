@@ -26,8 +26,8 @@ public class TimeTrigger implements Trigger{
     
     //Condition for the creation of the trigger
     @Override
-    public boolean isTriggered(TriggerContext context){
-        return context.getCurrentTime().truncatedTo(ChronoUnit.MINUTES).equals(time);
+    public boolean isTriggered(){
+        return LocalTime.now().truncatedTo(ChronoUnit.MINUTES).equals(time);
     }
 
     @Override

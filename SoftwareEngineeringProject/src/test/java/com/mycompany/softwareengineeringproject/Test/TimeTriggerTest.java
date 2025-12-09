@@ -19,9 +19,8 @@ public class TimeTriggerTest {
         LocalTime now = LocalTime.now().truncatedTo(ChronoUnit.MINUTES);
         TimeTrigger trigger = new TimeTrigger(now);
         LocalTime currentTime = LocalTime.now().truncatedTo(ChronoUnit.MINUTES);
-        TriggerContext context = new TriggerContext(currentTime);
 
-        assertTrue(trigger.isTriggered(context));
+        assertTrue(trigger.isTriggered());
     }
 
     //Test to control if the trigger isn't triggered when condition isn't verified
@@ -30,8 +29,7 @@ public class TimeTriggerTest {
         LocalTime triggerTime = LocalTime.of(10, 30);
         TimeTrigger trigger = new TimeTrigger(triggerTime);
         LocalTime currentTime = LocalTime.now().truncatedTo(ChronoUnit.MINUTES);
-        TriggerContext context = new TriggerContext(currentTime);
         
-        assertFalse(trigger.isTriggered(context));
+        assertFalse(trigger.isTriggered());
     }
 }
