@@ -16,6 +16,7 @@ and open the template in the editor.
     -dark-grey: #333;
     -light-blue: #E3F2FD;
     -delete-red: #ffb3b3;
+    -cyan: #94a2b3;
     -fx-font-family: 'Segoe UI', sans-serif;
 }
 
@@ -102,7 +103,7 @@ and open the template in the editor.
 
 /* when we select a rule */
 .list-cell:filled:selected {
-    -fx-background-color: -light-blue; /* O un tuo colore di selezione */
+    -fx-background-color: -light-blue;
     -fx-text-fill: black; 
 }
 
@@ -149,8 +150,8 @@ and open the template in the editor.
 
 /*Begin Trigger Style */
 .combo-box:hover {  /* Style When mouse pass hover the ComboBox */
-    -fx-background-color: #f2f5f8;
-    -fx-border-color: #94a2b3;
+    -fx-background-color: -light-grey;
+    -fx-border-color: -cyan;
 }
 
 .combo-box .list-cell { /* Style for singular cell of ComboBox */
@@ -160,34 +161,34 @@ and open the template in the editor.
 }
 
 .combo-box .list-cell:hover { /* Style when mouse pass hover the ComboBox cell */
-    -fx-background-color: #f2f5f8;
-    -fx-text-fill: #000;
+    -fx-background-color: -light-grey;
+    -fx-text-fill: black;
 }
 
 .combo-box-popup .list-view { /* Style of the section that open up when there is click on ComboBox */
     -fx-background-color: white;
     -fx-padding: 4;
-    -fx-border-color: #A9A9A9;
+    -fx-border-color: -grey;
 }
 
 .combo-box .arrow { /* Style of the selection arrow */
-    -fx-background-color: black;       /* colore freccia */
+    -fx-background-color: black;       
     -fx-padding: 0.3em;
-    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";  /* puoi cambiare forma */
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";  
 }
 
 .combo-box .arrow-button { /* Style of the section around the arrow */
-    -fx-background-color: #e0e0e0;
+    -fx-background-color: -grey;
     -fx-background-radius: 0 6 6 0;
 }
 
 .combo-box .arrow-button:hover { /* Style of the section around the arrow when mouse pass hover */
-    -fx-background-color: #c8c8c8;
+    -fx-background-color: -grey;
 }
 
 .spinner { /* Style of the structure of the Spinner */ 
     -fx-background-color: white;
-    -fx-border-color: #bfc7d1;
+    -fx-border-color: -cyan;
     -fx-border-width: 1.5;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
@@ -199,7 +200,7 @@ and open the template in the editor.
     -fx-font-size: 15px;
     -fx-padding: 8;
     -fx-alignment: center;
-    -fx-text-fill: #333;
+    -fx-text-fill: black;
 }
 
 .spinner .increment-arrow-button,
@@ -210,7 +211,7 @@ and open the template in the editor.
 
 .spinner .increment-arrow-button:hover,
 .spinner .decrement-arrow-button:hover { /* Style of the space arounde arrows when mouse pass hover */
-    -fx-background-color: #f2f5f8;
+    -fx-background-color: -white;
     -fx-background-radius: 0 8 0 0, 0 0 8 0;
 }
 
