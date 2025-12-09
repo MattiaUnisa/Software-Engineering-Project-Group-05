@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class App extends Application {
 
@@ -34,13 +36,28 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         launch();
-        RuleEngine rules.getInstance();
-        while(true){
-            rules.CheckAllRules();
-            Thread.sleep(1000); // one second between a cicle and another
-        }
+        Thread ruleEngineThread = new Thread(() -> {
+            RuleEngine rules =RuleEngine.getInstance();
+            while(true){
+                rules.CheckAllRules();
+                try {
+                    Thread.sleep(1000); // one second between a cicle and another
+                } catch (InterruptedException ex) {
+                    System.err.println("Rule Engine Loop Interrupted.");
+                }
+            }
+        }, "RuleEngine-Monitor-Thread");
+        
+        // Set the thread as a daemon. This mean that the program will close automatically
+        // also if this thread is already in execution, when all non-daemon thread (include JavaFX UI) are finished
+        ruleEngineThread.setDaemon(true);
+        
+        // Start the thread execution
+        ruleEngineThread.start();
+        
+        launch();
     }
 
 }
