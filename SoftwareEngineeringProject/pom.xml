@@ -29,9 +29,12 @@
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.4</version>
+                <version>0.0.8</version>
                 <configuration>
                     <mainClass>com.mycompany.softwareengineeringproject.App</mainClass>
+                    <modules>
+                        <module>javafx.controls</module> <module>javafx.fxml</module>    <module>javafx.media</module>   
+                    </modules>
                 </configuration>
                 <executions>
                     <execution>
@@ -91,6 +94,17 @@
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-fxml</artifactId>
                     <version>11</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-media</artifactId>
+                    <version>11</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-media</artifactId>
+                    <version>11</version>
+                    <classifier>win</classifier>
                 </dependency>
             </dependencies>
         </profile>

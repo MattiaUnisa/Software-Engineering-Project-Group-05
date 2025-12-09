@@ -22,13 +22,13 @@ public class PlayAudioAction implements Action {
     @Override
     public void execute(ActionContext context){
         if(filePath == null || filePath.isEmpty()){
-            context.appendToLog("ERROR: Path mancante");
+            context.appendToLog("ERROR: missing Path");
             return;
         }
         
         File audioFile = new File(filePath);
         if (!audioFile.exists()) {
-             context.appendToLog("ERROR: File non trovato: " + filePath);
+             context.appendToLog("ERROR: File not found: " + filePath);
              return;
         }
 
@@ -48,8 +48,8 @@ public class PlayAudioAction implements Action {
             // possiamo mostrare l'alert direttamente.
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Audio Player");
-            alert.setHeaderText("Riproduzione in corso...");
-            alert.setContentText("File: " + audioFile.getName() + "\nPremi STOP per interrompere.");
+            alert.setHeaderText("Playing audio...");
+            alert.setContentText("File: " + audioFile.getName() + "\nClick STOP to interrupt.");
             
             // Personalizzo il bottone
             ButtonType stopButton = new ButtonType("STOP Audio");
@@ -60,19 +60,19 @@ public class PlayAudioAction implements Action {
 
             // 5. Quando la finestra si chiude, stoppa l'audio
             stop();
-            context.appendToLog("Audio interrotto dall'utente.");
+            context.appendToLog("Audio stopped by user.");
             
         } catch (Exception e) {
             // Gestione errori (es. se provi a caricare un MP3 invece di WAV)
-            context.appendToLog("ERRORE RIPRODUZIONE: " + e.getMessage());
-            System.err.println("Dettaglio errore audio:");
+            context.appendToLog("PLAYING ERROR: " + e.getMessage());
+            System.err.println("ERROR DETAIL:");
             e.printStackTrace();
             
             // Mostriamo un alert di errore all'utente invece di crashare
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setTitle("Errore Formato");
-            errorAlert.setHeaderText("Impossibile riprodurre il file");
-            errorAlert.setContentText("Assicurati di usare un file .WAV.\nErrore: " + e.getMessage());
+            errorAlert.setTitle("Format error");
+            errorAlert.setHeaderText("File impossible to play");
+            errorAlert.setContentText("Make sure to play an .WAV audio file.\nError: " + e.getMessage());
             errorAlert.showAndWait();
         }
     }
