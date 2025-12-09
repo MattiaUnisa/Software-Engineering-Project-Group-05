@@ -42,7 +42,7 @@ public class RuleEngine {
     
     public void CheckAllRules(){
         for(Rule rule:rules){
-            ActionContext actioncontext = null;
+            ActionContext actioncontext = new ActionContext();
             if(rule.getTrigger().isTriggered()){
                 rule.getAction().execute(actioncontext);
             }
