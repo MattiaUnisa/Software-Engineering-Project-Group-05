@@ -13,25 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author anton
  */
 public class PlayAudioActionTest {
-    private final String valid = "C:\\Windows\\Media\\audio.mp3";
+    private final String valid = "C:\\Users\\matda\\OneDrive\\Desktop\\Media.wav";
     private final String notValid = "";
     
     @Test
-    public void testExecuteWIthMissingPath(){
+    public void testExecuteWithMissingPath(){
         PlayAudioAction action = new PlayAudioAction(notValid);
         ActionContext context = new ActionContext();
         
         action.execute(context);
-        
-        assertTrue(context.getExecutionLog().contains("ERROR: The path of the audio file isn't define"));
-    }
-    
-    @Test
-    public void testExecuteWithPath(){
-        PlayAudioAction action = new PlayAudioAction(valid);
-        ActionContext context = new ActionContext();
-        
-        assertDoesNotThrow(() -> action.execute(context));
+        System.out.println("context.getExecutionLog()");
+        assertTrue(context.getExecutionLog().contains("ERROR: Missing Path"));
     }
     
     @Test

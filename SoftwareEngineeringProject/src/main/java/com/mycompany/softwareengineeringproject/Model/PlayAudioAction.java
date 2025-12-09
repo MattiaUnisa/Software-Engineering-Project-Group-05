@@ -23,8 +23,7 @@ public class PlayAudioAction implements Action {
     @Override
     public void execute(ActionContext context) {
         if (filePath == null || filePath.isEmpty()) {
-            context.appendToLog("ERROR: missing Path");
-            DialogManager.showError("ERROR", "Missing Path", null);
+            context.appendToLog("ERROR: Missing Path");
             return;
         }
 
