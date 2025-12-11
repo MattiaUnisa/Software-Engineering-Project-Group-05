@@ -21,8 +21,8 @@ and open the template in the editor.
 }
 
 .main-container {
-    -fx-padding: 10px;
-    -fx-spacing: 20px;
+    -fx-padding: 5px;
+    -fx-spacing: 10px;
     -fx-alignment: CENTER;
 }
 

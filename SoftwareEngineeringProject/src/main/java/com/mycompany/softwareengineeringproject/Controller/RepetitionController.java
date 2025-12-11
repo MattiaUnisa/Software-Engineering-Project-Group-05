@@ -55,7 +55,7 @@ public class RepetitionController {
         minuteSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 0));
         
         // Max Repetitions: (Min: 0, Max: 999, Default: 1)
-        repetition.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 999, 1));
+        repetition.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 50, 1));
     }
     
     @FXML

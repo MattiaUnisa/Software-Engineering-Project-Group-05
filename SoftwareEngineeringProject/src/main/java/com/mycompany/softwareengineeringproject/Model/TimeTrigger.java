@@ -34,9 +34,9 @@ public class TimeTrigger implements Trigger{
         boolean sameTime = now.truncatedTo(ChronoUnit.MINUTES).equals(time);
         
         // Control if it's the first second of the minute
-        boolean isJustStarted = now.getSecond() == 0;
+       /* boolean isJustStarted = now.getSecond() == 0;*/
         
-        return sameTime && isJustStarted;
+        return sameTime /*&& isJustStarted*/;
     }
     
     @Override

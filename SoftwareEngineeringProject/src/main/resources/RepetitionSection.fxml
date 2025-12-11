@@ -8,13 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="repetitionHBox"
+<VBox fx:id="repetitionHBox"
       xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
-      fx:controller="com.mycompany.softwareengineeringproject.Controller.RepetitionController">
+      fx:controller="com.mycompany.softwareengineeringproject.Controller.RepetitionController"
+      stylesheets="@style.css">
     
-    <VBox>
+    <VBox styleClass="main-container" stylesheets="@style.css">
         <Label text="Repetition?" />
-        <HBox>
+        <HBox styleClass="main-container" stylesheets="@style.css">
             <RadioButton fx:id="yesRadio" mnemonicParsing="false" text="Yes" onAction="#handleYesSelected">
                 <toggleGroup>
                     <ToggleGroup fx:id="repetitionGroup" />
@@ -24,19 +25,19 @@
         </HBox>
     </VBox>
     
-    <VBox fx:id="repetitionInputContainer" managed="false" visible="false">
+    <VBox fx:id="repetitionInputContainer" managed="false" visible="false" styleClass="main-container" stylesheets="@style.css">
         
-        <HBox alignment="CENTER_LEFT">
+        <HBox styleClass="main-container" stylesheets="@style.css">
             <Label text="Sleep Period (D:H:M):" />
             <Spinner fx:id="daySpinner" prefWidth="100"/>
             <Spinner fx:id="hourSpinner" prefWidth="100"/>
             <Spinner fx:id="minuteSpinner" prefWidth="100"/>
         </HBox>
         
-        <HBox alignment="CENTER_LEFT">
+        <HBox styleClass="main-container" stylesheets="@style.css">
             <Label text="Max Repetitions:" />
             <Spinner fx:id="repetition" prefWidth="100"/>
         </HBox>
     </VBox>
     
-</HBox>
+</VBox>

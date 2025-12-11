@@ -65,5 +65,12 @@ public class Repetition {
     public void setCurrentRepetition(int currentRepetition) {
         this.currentRepetition = currentRepetition;
     }
+
+    @Override
+    public String toString() {
+        return "Repetition{" + "oneTime=" + oneTime + ", sleepPeriod=" + sleepPeriod + ", lastExecution=" + lastExecution + ", numRepetition=" + numRepetition + ", currentRepetition=" + currentRepetition + '}';
+    }
+    
+    
     
 }
