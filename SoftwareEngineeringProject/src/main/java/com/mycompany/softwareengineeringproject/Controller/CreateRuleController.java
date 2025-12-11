@@ -2,6 +2,7 @@ package com.mycompany.softwareengineeringproject.Controller;
 
 import com.mycompany.softwareengineeringproject.App;
 import com.mycompany.softwareengineeringproject.Model.Action;
+import com.mycompany.softwareengineeringproject.Model.Repetition;
 import com.mycompany.softwareengineeringproject.Model.Rule;
 import com.mycompany.softwareengineeringproject.Model.RuleEngine;
 import com.mycompany.softwareengineeringproject.Model.Trigger;
@@ -23,6 +24,8 @@ public class CreateRuleController {
     @FXML
     private ActionController actionSectionController;
     
+    private RepetitionController repetitionController;
+    
 
      // Go back to the home screen saving nothing
     @FXML
@@ -38,6 +41,8 @@ public class CreateRuleController {
         Trigger trigger = triggerSectionController.buildTrigger();
         
         Action action = actionSectionController.buildAction();
+        
+        Repetition repetition = repetitionController.buildRepetition();
         
         
         // Validation of the name
@@ -58,8 +63,7 @@ public class CreateRuleController {
             return;
         }
         
-        // empty rule 
-        Rule newRule = new Rule(name, trigger, action);
+        Rule newRule = new Rule(name, trigger, action, repetition);
 
         // add the rule to the singleton 
         RuleEngine.getInstance().addRule(newRule);

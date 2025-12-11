@@ -26,6 +26,7 @@
                 <Label text="Select Action:" styleClass="section-label"/>
                 <fx:include source="ActionSection.fxml" fx:id="actionSection"/> 
                 <!-- the previous line of code are used to include in this file another fxml file -->
+                <fx:include source="RepetitionSection.fxml" fx:id="repetitionSection"/> 
                 <Button text="Save Rule" onAction="#onSaveClick" styleClass="success-button" />
             </children>
         </VBox>

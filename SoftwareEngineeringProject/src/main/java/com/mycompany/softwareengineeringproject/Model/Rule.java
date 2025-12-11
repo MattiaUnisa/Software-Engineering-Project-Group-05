@@ -13,11 +13,15 @@ public class Rule{
     private String name;
     private Trigger trigger;
     private Action action;
+    private boolean active;
+    private Repetition repetition;
 
-    public Rule(String name, Trigger trigger, Action action) {
+    public Rule(String name, Trigger trigger, Action action, Repetition repetition) {
         this.name = name;
         this.trigger = trigger;
         this.action = action;
+        this.active = true;
+        this.repetition = repetition;
     }
 
     public String getName() {
@@ -32,6 +36,14 @@ public class Rule{
         return action;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public Repetition getRepetition() {
+        return repetition;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -42,6 +54,14 @@ public class Rule{
 
     public void setAction(Action action) {
         this.action = action;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setRepetition(Repetition repetition) {
+        this.repetition = repetition;
     }
 
     @Override

@@ -211,7 +211,7 @@ and open the template in the editor.
 
 .spinner .increment-arrow-button:hover,
 .spinner .decrement-arrow-button:hover { /* Style of the space arounde arrows when mouse pass hover */
-    -fx-background-color: -white;
+    -fx-background-color: white;
     -fx-background-radius: 0 8 0 0, 0 0 8 0;
 }
 

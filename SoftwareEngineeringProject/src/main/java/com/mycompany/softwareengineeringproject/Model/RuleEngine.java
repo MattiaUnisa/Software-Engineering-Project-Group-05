@@ -4,6 +4,7 @@
  */
 package com.mycompany.softwareengineeringproject.Model;
 
+import java.time.LocalDateTime;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -43,13 +44,33 @@ public class RuleEngine {
     
     public void CheckAllRules(){
         for(Rule rule : rules){
-            if(rule.getTrigger().isTriggered()){
+            if(rule.getTrigger().isTriggered() && rule.isActive()){
                 // Wrap the execution in Platform.runLater in the way that the RuleEngineThread verify if the trigger of a rule is triggered and
                 // then the application thread execute it. So the application thread when is free show it on display, while the RuleEngineThread 
                 // continues to check triggers
+                LocalDateTime nextFireTime = null;
+                
+                if(rule.getRepetition().isOneTime() && rule.getRepetition().getLastExecution()!=null){
+                    continue;
+                }
+                
+                if(rule.getRepetition().getLastExecution()!=null && rule.getRepetition().getSleepPeriod()!=null){
+                    nextFireTime = rule.getRepetition().getLastExecution().plus(rule.getRepetition().getSleepPeriod());
+                    if (LocalDateTime.now().isBefore(nextFireTime)) {
+                        continue;
+                    }
+                }
+                
+                if(rule.getRepetition().getCurrentRepetition()>=rule.getRepetition().getNumRepetition()){
+                    continue;
+                }
                 Platform.runLater(() -> {
                     ActionContext actioncontext = new ActionContext();
                     rule.getAction().execute(actioncontext);
+                    rule.getRepetition().setLastExecution(LocalDateTime.now());
+                    int i = rule.getRepetition().getCurrentRepetition();
+                    i++;
+                    rule.getRepetition().setCurrentRepetition(i);
                     System.out.println(actioncontext.getExecutionLog());
                 });
             }
