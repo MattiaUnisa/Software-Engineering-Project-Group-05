@@ -13,11 +13,13 @@ public class Rule{
     private String name;
     private Trigger trigger;
     private Action action;
+    private boolean active;
 
     public Rule(String name, Trigger trigger, Action action) {
         this.name = name;
         this.trigger = trigger;
         this.action = action;
+        this.active = true;
     }
 
     public String getName() {
@@ -44,9 +46,19 @@ public class Rule{
         this.action = action;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     @Override
     public String toString() {
-        return "Rule:" + "name=" + name + ", trigger=" + trigger + ", action=" + action;
+        return "Rule: " + "name=" + name + ", trigger=" + trigger + ", action=" + action + ", active=" + active;
     }
+    
+    
     
 }
