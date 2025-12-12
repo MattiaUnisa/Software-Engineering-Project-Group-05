@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
  */
 public class RuleEngine {
     private static RuleEngine instance;
-    private ObservableList<Rule> rules;
+    private final ObservableList<Rule> rules;
     // observer: the list updates automatically the view 
     
     private RuleEngine() {
