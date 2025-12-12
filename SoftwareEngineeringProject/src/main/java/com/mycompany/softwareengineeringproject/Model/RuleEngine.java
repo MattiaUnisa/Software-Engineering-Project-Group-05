@@ -73,10 +73,6 @@ public class RuleEngine {
                 Platform.runLater(() -> {
                     ActionContext actioncontext = new ActionContext();
                     rule.getAction().execute(actioncontext);
-                    //rule.getRepetition().setLastExecution(LocalDateTime.now());
-                    //int i = rule.getRepetition().getCurrentRepetition();
-                    //i++;
-                    //rule.getRepetition().setCurrentRepetition(i);
                     System.out.println(actioncontext.getExecutionLog());
                 });
             }
