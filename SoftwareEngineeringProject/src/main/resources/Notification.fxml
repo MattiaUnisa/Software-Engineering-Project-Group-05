@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mycompany.softwareengineeringproject.Controller.NotificationController"
+      spacing="10">
+
+    <Label text="Notification message:"/>
+    <TextField fx:id="messageField" promptText="Type your notification..."/>
+
+</VBox>
